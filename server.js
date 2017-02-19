@@ -1,12 +1,10 @@
-var express  = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var port = process.env.PORT || 1337;
+var express = require('express')
+var app = express()
 
-mongoose.connect('mongodb://vision:vision@ds159497.mlab.com:59497/vision');
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
 
-var app = express();
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
-app.use('/api',require('./routes/api'));
-app.listen(port);
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
